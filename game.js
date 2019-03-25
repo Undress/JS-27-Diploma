@@ -64,6 +64,21 @@ class Actor {
 
 	act() {}
 
+	isIntersect(actor) {
+		try {
+			if (!(actor instanceof Actor)) {
+				throw "Параметр не является движущимся объектом";
+			} else if (actor == this) {
+				return false;
+			} else {
+				return ( actor.top < this.bottom || actor.bottom > this.top || actor.right < this.left || actor.left > this.right );
+			}
+
+		} catch(e) {
+			console.log(e);
+		}
+
+	}
 
 
 }
